@@ -6,11 +6,16 @@
 let express = require('express')
 let photosController = require('../controllers/photos-controller')
 
-exports.photosRouter = (() => {
+exports.getRouter = () => {
   let router = express.Router()
 
-  router.get('/', photosController.findPhotos)
-  router.post('/', photosController.createPhoto)
+  router.get('/', async (req, res) => {
+    return res.send(await photosController.findPhotos())
+  })
+
+  router.post('/', async (req, res) => {
+    return res.send(await photosController.createPhoto(req.body))
+  })
 
   return router
-})()
+}

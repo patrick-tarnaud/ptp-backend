@@ -8,25 +8,15 @@ let Photo = require('../database/photos-model').Photo
  * 
  * @returns {Photo} the photos
  */
-exports.findPhotos = (req, res) => {
-  Photo.find({}, (err, photos) => {
-    if (err) throw err
-    res.send(photos)
-  })
+exports.findPhotos = async () => {
+  let photos = await Photo.find({})
+  return photos
 }
 
 /**
  * Create photo
  */
-exports.createPhoto = (req, res) => {
-  let newPhoto = new Photo()
-
-  newPhoto.imageFilename = req.body.imageFilename
-  newPhoto.thumbnailFilename = req.body.thumbnailFilename
-  newPhoto.title = req.body.title
-  newPhoto.description = req.body.description
-
-  newPhoto.save((err, photo) => res.send(photo))
+exports.createPhoto = async (photo) => {
+  let newPhoto = new Photo(photo)
+  return await newPhoto.save()
 }
-
-// module.exports = { findPhotos, createPhoto }

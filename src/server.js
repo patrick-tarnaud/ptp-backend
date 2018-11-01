@@ -5,8 +5,8 @@
 // imports
 let express = require('express')
 let bodyParser = require('body-parser')
-let photosRouter = require('./routers/photos-router').photosRouter
-let collectionsRouter = require('./routers/collections-router').collectionsRouter
+let photosRouter = require('./routers/photos-router')
+// let collectionsRouter = require('./routers/collections-router').collectionsRouter
 let db = require('./database/db')
 
 // constants
@@ -19,8 +19,7 @@ server.use(bodyParser.urlencoded({ extended: true }))
 server.use(bodyParser.json())
 
 // routers
-server.use('/photos', photosRouter)
-server.use('/collections', collectionsRouter)
+server.use('/photos', photosRouter.getRouter())
 
 // http server starting
 server.listen(PORT, HOSTNAME, () => {
