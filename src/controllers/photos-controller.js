@@ -1,7 +1,7 @@
 /**
  * Photos controller
  */
-let Photo = require('../database/photos-model').Photo
+let PhotosDAO = require('../dao/photos-dao')
 
 /**
  * Find photos
@@ -9,14 +9,12 @@ let Photo = require('../database/photos-model').Photo
  * @returns {Photo} the photos
  */
 exports.findPhotos = async () => {
-  let photos = await Photo.find({})
-  return photos
+  return await PhotosDAO.findPhotos({})
 }
 
 /**
  * Create photo
  */
 exports.createPhoto = async (photo) => {
-  let newPhoto = new Photo(photo)
-  return await newPhoto.save()
+  return await PhotosDAO.createPhoto(photo)
 }

@@ -7,7 +7,7 @@ let express = require('express')
 let bodyParser = require('body-parser')
 let photosRouter = require('./routers/photos-router')
 // let collectionsRouter = require('./routers/collections-router').collectionsRouter
-let db = require('./database/db')
+
 
 // constants
 const HOSTNAME = 'localhost'
@@ -27,12 +27,12 @@ server.listen(PORT, HOSTNAME, () => {
 })
 
 // database connection
-db.connect()
-  .then(() => console.log('Database connection success.'))
-  .catch((err) => {
-    console.log('Database connection failed.')
-    process.exit(1)
-  })
+// db.connect()
+//   .then(() => console.log('Database connection success.'))
+//   .catch((err) => {
+//     console.log('Database connection failed.')
+//     process.exit(1)
+//   })
 
 
 
