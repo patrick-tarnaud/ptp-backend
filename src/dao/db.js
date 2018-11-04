@@ -4,7 +4,7 @@
 const MongoCient = require('mongodb').MongoClient
 
 // connection URI
-const PTP_DB = 'connection://localhost:27017/'
+const PTP_DB = 'mongodb://localhost:27017/'
 
 // mongoDB connection
 let connection = {}

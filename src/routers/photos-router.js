@@ -17,5 +17,11 @@ exports.getRouter = () => {
     return res.send(await photosController.createPhoto(req.body))
   })
 
+  router.post('/init', async (req, res) => {
+    console.log('router init')
+    await photosController.init()
+    res.send('Initialization done')
+  })
+
   return router
 }

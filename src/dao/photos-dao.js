@@ -2,6 +2,7 @@
  * Photo Database Management
  */
 const db = require('./db')
+const photosDB = require('./init/photos-db').photosDB
 
 /**
  * Find photos in db
@@ -30,4 +31,14 @@ exports.createPhoto = async (photo) => {
   db.close()
 
   return newPhoto.ops[0]
+}
+
+/**
+ * Init
+ */
+exports.init = async () => {
+  let ptpdb = await db.connect()
+  await ptpdb.collection('photos').drop()
+  await ptpdb.collection('photos').insertMany(photosDB)
+  db.close()
 }

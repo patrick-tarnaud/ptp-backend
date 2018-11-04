@@ -18,3 +18,10 @@ exports.findPhotos = async () => {
 exports.createPhoto = async (photo) => {
   return await PhotosDAO.createPhoto(photo)
 }
+
+/**
+ * Init
+ */
+exports.init = async () => {
+  await PhotosDAO.init()
+}
