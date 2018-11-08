@@ -1,4 +1,4 @@
-exports.photosDB = [
+export const photosDB = [
   {
     "file": "1.jpg",
     "title": "Vélo au carré",

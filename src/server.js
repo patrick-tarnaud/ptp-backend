@@ -3,10 +3,10 @@
  */
 
 // imports
-let express = require('express')
-let bodyParser = require('body-parser')
-let photosRouter = require('./routers/photos-router')
-// let collectionsRouter = require('./routers/collections-router').collectionsRouter
+import express from 'express'
+import bodyParser from 'body-parser'
+import * as photosRouter from './routers/photos-router'
+
 
 
 // constants
