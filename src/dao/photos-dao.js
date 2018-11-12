@@ -2,7 +2,7 @@
  * Photo Database Management
  */
 import * as db from './db'
-import * as photosDB from './init/photos-db'
+import { photosDB } from './init/photos-db'
 
 /**
  * Find photos in db

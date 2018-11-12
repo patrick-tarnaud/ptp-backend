@@ -4,7 +4,7 @@
 import { MongoClient } from 'mongodb'
 
 // connection URI
-const PTP_DB = 'mongodb://localhost:27017/'
+const PTP_DB = 'mongodb://localhost:27018/'
 
 /**
  * Connect to ptpdb database
