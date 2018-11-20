@@ -6,6 +6,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import * as photosRouter from './routers/photos-router'
+import cors from 'cors'
 
 
 
@@ -17,6 +18,9 @@ const PORT = '8080'
 let server = express()
 server.use(bodyParser.urlencoded({ extended: true }))
 server.use(bodyParser.json())
+
+// CORS
+server.use(cors())
 
 // routers
 server.use('/photos', photosRouter.getRouter())

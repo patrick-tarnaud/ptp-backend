@@ -31,8 +31,15 @@ export const createPhoto = async (photo) => {
  * Init
  */
 export const init = async () => {
-  let ptpdb = await db.connect()
-  await ptpdb.collection('photos').drop()
-  let newPhotos = await ptpdb.collection('photos').insertMany(photosDB)
-  return newPhotos.ops
+  try {
+    console.log('init entry')
+    let ptpdb = await db.connect()
+    console.log('init after connect')
+    await ptpdb.collection('photos').drop()
+    console.log('init after drop')
+    let newPhotos = await ptpdb.collection('photos').insertMany(photosDB)
+    return newPhotos.ops
+  } catch (error) {
+    console.log(error)
+  }
 }
