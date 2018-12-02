@@ -17,8 +17,21 @@ export const getRouter = () => {
     res.send(await photosController.createPhoto(req.body))
   })
 
+  router.delete('/', async (req, res) => {
+    try {
+      res.send(await photosController.deleteAll())
+    } catch (error) {
+      console.log(error)
+    }
+  })
+
   router.post('/init', async (req, res) => {
-    res.send(await photosController.init())
+    try {
+      let photos = await photosController.init()
+      res.send(photos)
+    } catch (error) {
+      console.log(error)
+    }
   })
 
   return router

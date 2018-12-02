@@ -11,7 +11,7 @@ export const photosDB = [
   },
   {
     "file": "3.jpg",
-    "title": "Esacliers",
+    "title": "Escaliers",
     "description": "Escalier descendant de la corniche vers la mer en noir et blanc"
   },
   {

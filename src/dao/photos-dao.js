@@ -10,9 +10,10 @@ import { photosDB } from './init/photos-db'
  * @returns {photo} the photos
  */
 export const findPhotos = async () => {
-  let ptpdb = await db.connect()
-  let photos = await ptpdb.collection('photos').find().toArray()
-  return photos
+  // let ptpdb = await db.connect()
+  // let photos = await ptpdb.collection('photos').find().toArray()
+  // return photos
+  return photosDB
 }
 
 /**

@@ -12,7 +12,7 @@ import cors from 'cors'
 
 // constants
 const HOSTNAME = 'localhost'
-const PORT = '8080'
+const PORT = process.env.PORT || 8080;
 
 // initialization
 let server = express()
@@ -25,8 +25,9 @@ server.use(cors())
 // routers
 server.use('/photos', photosRouter.getRouter())
 
+
 // http server starting
-server.listen(PORT, HOSTNAME, () => {
+server.listen(PORT, () => {
   console.log('Http Server listening')
 })
 
